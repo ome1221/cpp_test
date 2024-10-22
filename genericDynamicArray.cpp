@@ -104,9 +104,5 @@ int main() {
     arr[1] = 25;  // Modify an element
     std::cout << "After modification, element at index 1: " << arr[1] << std::endl;
 
-    // Const usage
-    const DynamicArray<int>& constArr = arr;
-    std::cout << "Accessing element at index 1 from const object: " << constArr[1] << std::endl;
-
     return 0;
 }
