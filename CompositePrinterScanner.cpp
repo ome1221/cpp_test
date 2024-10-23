@@ -63,12 +63,11 @@ class PrinterScanner : public Device {
         Scanner _scanner;
         
     public:
-        PrinterScanner(string name, string location, string model, string type)
-            : Device(name, location, model), _printer(name, location, model, type), _scanner(name, location, model) {
+        PrinterScanner()
+            : Device::Device("HP", "Office", "3000") {
             cout << "Constructor for PrinterScanner" << endl;
         }
 
-        // Combining print and scan functionalities
         void printAndScan() {
             _printer.print();
             _scanner.scan();
@@ -76,7 +75,7 @@ class PrinterScanner : public Device {
 };
 
 int main() {
-    PrinterScanner psInstance("HP", "Office", "3000", "Laser");
+    PrinterScanner psInstance;
     psInstance.printAndScan();
 
     return 0;
