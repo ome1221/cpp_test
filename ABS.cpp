@@ -2,7 +2,7 @@
 
 using namespace std;
 
-// Macro to calculate absolute value
+// Macro
 #define ABS(x) ((x) < 0 ? -(x) : (x))
 
 int main() {
