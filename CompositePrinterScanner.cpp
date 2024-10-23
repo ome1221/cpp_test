@@ -8,7 +8,6 @@ class Device {
     
     public:
         Device() {
-            cout << "Default constructor for Device" << endl;
         }
         
         Device(string name, string location, string model) 
@@ -27,7 +26,6 @@ class Printer : public Device {
 
     public:
         Printer() {
-            cout << "Default constructor for Printer" << endl;
         }
         
         Printer(string name, string location, string model, string type) 
@@ -44,7 +42,6 @@ class Printer : public Device {
 class Scanner : public Device {
     public:
         Scanner() {
-            cout << "Default constructor for Scanner" << endl;
         }
         
         Scanner(string name, string location, string model) 
