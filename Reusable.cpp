@@ -4,30 +4,41 @@
 
 using namespace std;
 
-//predicate
-bool checkStringStartWith(const string& item, char firstAlp){
-		return !item.empty() && item[0] == firstAlp;
-}
+//  strategy1: 
+class StartsWith {
+    char firstAlp;
+public:
+    StartsWith(char alp) : firstAlp(alp) {}
 
-vector<string> filter(const vector<string>& source, bool(*predicate)(const string&, char), char firstAlp) {
+    bool check(const string& item) const {
+        return !item.empty() && item[0] == firstAlp;
+    }
+};
+
+//strategy2:
+
+
+template<typename Strategy>
+vector<string> filter(const vector<string>& source, const Strategy& strategy) {
     vector<string> filteredStrings;
     for (const string& item : source) {
-        if (predicate(item, firstAlp)) {
+        if (strategy.check(item)) {
             filteredStrings.push_back(item);
         }
     }
     return filteredStrings;
 }
 
-
 int main() {
-    vector<std::string> cities = {"New York", "Los Angeles", "Chicago", "New Jersey"};
+    vector<string> cities = {"New York", "Los Angeles", "Chicago", "New Jersey"};
 
-    char firstAlp = 'L'; // Change as per NEed
-    vector<string> filteredCities = filter(cities, &checkStringStartWith, firstAlp);
+    // Using strategy1
+    char firstAlp = 'L'; // Change as per need
+    StartsWith startsWithStrategy(firstAlp);
+    vector<string> filteredCitiesByStart = filter(cities, startsWithStrategy);
 
     cout << "Cities that start with '" << firstAlp << "':" << endl;
-    for (const string& city : filteredCities) {
+    for (const string& city : filteredCitiesByStart) {
         cout << city << endl;
     }
 
