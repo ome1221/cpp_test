@@ -4,7 +4,7 @@
 
 using namespace std;
 
-//  strategy1: 
+//strategy1:
 class StartsWith {
     char firstAlp;
 public:
@@ -15,11 +15,10 @@ public:
     }
 };
 
-//strategy2:
+//stratergy2:
+//code
 
-
-template<typename Strategy>
-vector<string> filter(const vector<string>& source, const Strategy& strategy) {
+vector<string> filter(const vector<string>& source, const StartsWith& strategy) {
     vector<string> filteredStrings;
     for (const string& item : source) {
         if (strategy.check(item)) {
@@ -33,7 +32,7 @@ int main() {
     vector<string> cities = {"New York", "Los Angeles", "Chicago", "New Jersey"};
 
     // Using strategy1
-    char firstAlp = 'L'; // Change as per need
+    char firstAlp = 'L';
     StartsWith startsWithStrategy(firstAlp);
     vector<string> filteredCitiesByStart = filter(cities, startsWithStrategy);
 
